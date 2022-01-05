@@ -1,0 +1,35 @@
+ # #just add the meta analysis to the other one, should be fine.
+
+ MARKERLABEL   MarkerName
+ ALLELELABELS  Allele1 Allele2
+ PVALUELABEL   P-value
+
+ SCHEME SAMPLESIZE
+
+ GENOMICCONTROL OFF
+
+
+ FREQLABEL Freq1
+ AVERAGEFREQ ON
+ MINMAXFREQ ON
+ ADDFILTER Freq1 >= 0.01
+ TRACKPOSITIONS ON 
+ CHROMOSOME Chromosome
+ POSITION Position
+ 
+ 
+ EFFECTLABEL Zscore
+ WEIGHTLABEL N_cc_eff
+ 
+ PROCESS metal_results/eur_PTSD_Continuous_m0_cconlyreweight_pcs_alldata_may8_2020_XXX.gz1.tbl 
+ 
+ EFFECTLABEL   Z_eff
+ WEIGHTLABEL N_qt_eff
+ 
+ PROCESS  metal_results/eur_PTSD_Continuous_m0_qtonlyreweight_pcs_alldata_may8_2020_XXX.gz1.tbl 
+
+
+
+OUTFILE metal_results/eur_PTSD_Continuous_m0_qtandccreweighted_pcs_alldata_may8_2020_XXX .tbl
+ANALYZE 
+QUIT

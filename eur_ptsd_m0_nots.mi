@@ -1,0 +1,126 @@
+ # #just add the meta analysis to the other one, should be fine.
+
+ MARKERLABEL   ID
+ ALLELELABELS  A1 AX
+ PVALUELABEL   P 
+ EFFECTLABEL   BETA
+ SCHEME SAMPLESIZE
+ ##STDERR SE 
+ GENOMICCONTROL OFF
+ ##CUSTOMVARIABLE OBS_CT 
+ WEIGHTLABEL OBS_CT
+ FREQLABEL A1_FREQ
+ AVERAGEFREQ ON
+ MINMAXFREQ ON
+ ADDFILTER A1_FREQ >= 0.01
+ TRACKPOSITIONS ON 
+ CHROMOSOME CHROM
+ POSITION POS
+ 
+  #PROCESS results_cat/betr_betr_eur_pcs.Current_PTSD_Continuous.assoc.gz_XXX
+ PROCESS results_cat/coga_coga_eur_pcs.Lifetime_PTSD_Continuous.assoc.gz_XXX
+ PROCESS results_cat/cogb_cogb_eur_pcs.Lifetime_PTSD_Continuous.assoc.gz_XXX
+ PROCESS results_cat/comc_comc_eur_pcs.Lifetime_PTSD_Continuous.assoc.gz_XXX
+ PROCESS results_cat/fscd_fscd_eur_pcs.Lifetime_PTSD_Continuous.assoc.gz_XXX
+ PROCESS results_cat/ftca_ftca_eur_pcs.Lifetime_PTSD_Continuous.assoc.gz_XXX
+ PROCESS results_cat/gali_gali_eur_pcs.Current_PTSD_Continuous.assoc.gz_XXX
+ PROCESS results_cat/grac_grac_eur_pcs.Lifetime_PTSD_Continuous.assoc.gz_XXX
+ PROCESS results_cat/gtpc_gtpc_eur_pcs.Current_PTSD_Continuous.assoc.gz_XXX
+ PROCESS results_cat/meg2_wach_eur_pcs.Current_PTSD_Continuous.assoc.gz_XXX 
+  #PROCESS results_cat/minv_minv_eur_pcs.Lifetime_PTSD_Continuous.assoc.gz_XXX
+ PROCESS results_cat/mrsc_mrsc_eur_pcs.Current_PTSD_Continuous.assoc.gz_XXX
+ PROCESS results_cat/mrsc_cvc_eur_pcs.Current_PTSD_Continuous.assoc.gz_XXX
+ PROCESS results_cat/nhrv_gfk_eur_pcs.Lifetime_PTSD_Continuous.assoc.gz_XXX
+ PROCESS results_cat/nhrv_vakn_eur_pcs.Lifetime_PTSD_Continuous.assoc.gz_XXX
+  #PROCESS results_cat/nhs2_nhs2_eur_pcs.Lifetime_PTSD_Continuous.assoc.gz_XXX
+  #PROCESS results_cat/nss1_nss1_eur_pcs.Current_PTSD_Continuous.assoc.gz_XXX
+ PROCESS results_cat/nss1_ppds_eur_pcs.Current_PTSD_Continuous.assoc.gz_XXX
+  #PROCESS results_cat/nss2_nss2_eur_pcs.Current_PTSD_Continuous.assoc.gz_XXX
+  #PROCESS results_cat/onga_onga_eur_pcs.Lifetime_PTSD_Continuous.assoc.gz_XXX
+ PROCESS results_cat/pris_pris_eur_pcs.Current_PTSD_Continuous.assoc.gz_XXX
+  #PROCESS results_cat/psy2_guts_eur_pcs.Lifetime_PTSD_Continuous.assoc.gz_XXX
+  #PROCESS results_cat/psy2_nhsy_eur_pcs.Lifetime_PTSD_Continuous.assoc.gz_XXX
+ PROCESS results_cat/psy3_bry2_eur_pcs.Current_PTSD_Continuous.assoc.gz_XXX 
+  #PROCESS results_cat/psy3_niut_eur_pcs.Current_PTSD_Continuous.assoc.gz_XXX 
+  #PROCESS results_cat/psy3_eacr_eur_pcs.Current_PTSD_Continuous.assoc.gz_XXX
+  #PROCESS results_cat/pts1_kmct_eur_pcs.Current_PTSD_Continuous.assoc.gz_XXX
+ PROCESS results_cat/pts1_ksud_eur_pcs.Current_PTSD_Continuous.assoc.gz_XXX
+ PROCESS results_cat/pts1_port_eur_pcs.Current_PTSD_Continuous.assoc.gz_XXX
+  #PROCESS results_cat/pts1_boba_eur_pcs.Current_PTSD_Continuous.assoc.gz_XXX
+ PROCESS results_cat/ring_ring_eur_pcs.Current_PTSD_Continuous.assoc.gz_XXX 
+ PROCESS results_cat/wrby_wrby_eur_pcs.Current_PTSD_Continuous.assoc.gz_XXX
+    
+ #Just a couple of case control studies where I need to use log OR instead
+ EFFECTLABEL  log(OR)
+ WEIGHTLABEL FAKE #This fixes the fact that OBS_CT is found for these subjects, and therefore ignores my custom weight!!
+ 
+ #set weight to effn?
+ DEFAULTWEIGHT 866
+   #PROCESS results_cat/gsdc_gsdc_eur_pcs.Case.assoc.gz_XXX
+ DEFAULTWEIGHT 428
+  PROCESS results_cat/psy3_feen_eur_pcs.Case.assoc.gz_XXX
+ DEFAULTWEIGHT 1244
+  PROCESS results_cat/psy3_ncmh_eur_pcs.Case.assoc.gz_XXX
+ DEFAULTWEIGHT 630 
+  PROCESS results_cat/psy4_psy4_eur_pcs.Case.assoc.gz_XXX
+ DEFAULTWEIGHT 1098 
+  PROCESS results_cat/stro_stro_eur_pcs.Case.assoc.gz_XXX
+ 
+  
+ MARKERLABEL  SNP
+ ADDFILTER INFO > 0.6
+ PVALUELABEL   P 
+ ALLELELABELS A1 A2
+ CHROMOSOME CHR
+ POSITION BP
+ EFFECTLABEL  log(OR)
+   
+ FREQLABEL FRQ_U_572
+ DEFAULTWEIGHT 302
+  #PROCESS sumstats/bychr/daner_brya_eur_analysis_run3.gz.maf01.gz_XXX
+ 
+ FREQLABEL FRQ_U_2721 
+ DEFAULTWEIGHT 2140
+ PROCESS sumstats/bychr/daner_DBS_23.gz.maf01.gz_XXX
+ 
+ FREQLABEL FRQ_U_2019
+ DEFAULTWEIGHT 1504
+ PROCESS sumstats/bychr/daner_psd_25July.gz.maf01.gz_XXX
+
+ FREQLABEL FRQ_U_116
+ DEFAULTWEIGHT 187
+  #PROCESS sumstats/bychr/INTr_eur_analysis1_mf.gz.maf01.gz_XXX
+
+ FREQLABEL FRQ_U_405
+ DEFAULTWEIGHT 823
+  #PROCESS sumstats/bychr/MIRE_eur_analysis1_mf.gz.maf01.gz_XXX
+
+ FREQLABEL FRQ_U_162
+ DEFAULTWEIGHT 420
+  #PROCESS sumstats/bychr/N800_eur_analysis1_mf.gz.maf01.gz_XXX
+
+ FREQLABEL FRQ_U_1797
+ DEFAULTWEIGHT 1101
+ PROCESS sumstats/bychr/pts_qimr_mix_nm.logscale.results.gz.maf01.gz_XXX
+
+ FREQLABEL FRQ_U_49
+ DEFAULTWEIGHT 147
+  #PROCESS sumstats/bychr/TRAC_eur_analysis1_mf.gz.maf01.gz_XXX
+
+ ALLELELABELS  ALLELE1 ALLELE0
+ FREQLABEL A1FREQ
+
+ EFFECTLABEL BETA
+ PVALUELABEL P_BOLT_LMM_INF
+ 
+ DEFAULTWEIGHT 134586
+ #PROCESS sumstats/bychr/ptsd_qt_ukbb_mar23_2020_unrelated.bgen.stats.gz_XXX
+ 
+ PVALUELABEL P_BOLT_LMM
+ DEFAULTWEIGHT 1088
+ PROCESS sumstats/bychr/ptsd_qt_vetsa_may4_2020_related_filtered.imputed.stats.gz_XXX
+   
+
+OUTFILE metal_results/eur_PTSD_Continuous_m0_NOtrauma_pcs_alldata_may8_2020_XXX .tbl
+ANALYZE 
+QUIT
